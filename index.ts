@@ -5,7 +5,8 @@ const app = express();
 
 const PORT = 3000;
 
-const htmlTemplate = `
+export function buildHtml(title: string, message: string): string { 
+    return `
     <!DOCTYPE html>
     <html lang="pt-BR">
     <head>
@@ -47,17 +48,23 @@ const htmlTemplate = `
     </head>
     <body>
       <div class="container">
-        <h1> Sistema Operacional</h1>
-        <p>API em Express com TypeScript está online e respondendo.</p>
+        <h1>${title}</h1>
+        <p>${message}</p>
         <div class="badge">Status: Ativo</div>
       </div>
     </body>
     </html>
   `;
-
+}
 
 app.get('/', (req: Request, res: Response) => {
-    res.send(htmlTemplate);
+    const htmlResponse: string = buildHtml("Rota base", "Rota Base Funcionando!");
+    res.send(htmlResponse);
+})
+
+app.get('/seal', (req: Request, res: Response) => {
+    const htmlResponse: string = buildHtml("Rota SEAL", "Rota SEAL funcionando!");
+    res.send(htmlResponse)
 })
 
 app.listen(PORT, () => {
