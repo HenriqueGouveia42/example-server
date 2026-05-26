@@ -67,6 +67,11 @@ app.get('/seal', (req: Request, res: Response) => {
     res.send(htmlResponse)
 })
 
+app.get("/happy", (req: Request, res: Response) =>{
+    const htmlResponse: string = buildHtml("Rota Happy", "Rota happy funcionando!");
+    res.send(htmlResponse);
+})
+
 app.listen(PORT, () => {
     console.log("API em execução");
     console.log(`Acesse a API em http://localhost:${PORT}\n`);
