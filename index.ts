@@ -72,6 +72,11 @@ app.get("/happy", (req: Request, res: Response) =>{
     res.send(htmlResponse);
 })
 
+app.get("/sad", (req: Request, res: Response) =>{
+    const htmlResponse: string = buildHtml("Rota Sad", "Rota Sad funcionando!");
+    res.send(htmlResponse);
+})
+
 app.listen(PORT, () => {
     console.log("API em execução");
     console.log(`Acesse a API em http://localhost:${PORT}\n`);
